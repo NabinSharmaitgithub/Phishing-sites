@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Landing Page</title>
+    <style>
+        body { margin: 0; padding-top: 5em; background-color: #121212; color: white; }
+        canvas { display: block; }
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 1em;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            width: 100%;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        nav li {
+            margin: 0.5em;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="adobe/">adobe</a></li>
+            <li><a href="badoo/">badoo</a></li>
+            <li><a href="deviantart/">deviantart</a></li>
+            <li><a href="discord/">discord</a></li>
+            <li><a href="dropbox/">dropbox</a></li>
+            <li><a href="ebay/">ebay</a></li>
+            <li><a href="facebook/">facebook</a></li>
+            <li><a href="fb_advanced/">fb_advanced</a></li>
+            <li><a href="fb_messenger/">fb_messenger</a></li>
+            <li><a href="fb_security/">fb_security</a></li>
+            <li><a href="github/">github</a></li>
+            <li><a href="gitlab/">gitlab</a></li>
+            <li><a href="google/">google</a></li>
+            <li><a href="google_new/">google_new</a></li>
+            <li><a href="google_poll/">google_poll</a></li>
+            <li><a href="ig_followers/">ig_followers</a></li>
+            <li><a href="ig_verify/">ig_verify</a></li>
+            <li><a href="insta_followers/">insta_followers</a></li>
+            <li><a href="instagram/">instagram</a></li>
+            <li><a href="linkedin/">linkedin</a></li>
+            <li><a href="mediafire/">mediafire</a></li>
+            <li><a href="microsoft/">microsoft</a></li>
+            <li><a href="netflix/">netflix</a></li>
+            <li><a href="origin/">origin</a></li>
+            <li><a href="paypal/">paypal</a></li>
+            <li><a href="pinterest/">pinterest</a></li>
+            <li><a href="playstation/">playstation</a></li>
+            <li><a href="protonmail/">protonmail</a></li>
+            <li><a href="quora/">quora</a></li>
+            <li><a href="reddit/">reddit</a></li>
+            <li><a href="roblox/">roblox</a></li>
+            <li><a href="snapchat/">snapchat</a></li>
+            <li><a href="spotify/">spotify</a></li>
+            <li><a href="stackoverflow/">stackoverflow</a></li>
+            <li><a href="steam/">steam</a></li>
+            <li><a href="tiktok/">tiktok</a></li>
+            <li><a href="twitch/">twitch</a></li>
+            <li><a href="twitter/">twitter</a></li>
+            <li><a href="vk/">vk</a></li>
+            <li><a href="vk_poll/">vk_poll</a></li>
+            <li><a href="wordpress/">wordpress</a></li>
+            <li><a href="xbox/">xbox</a></li>
+            <li><a href="yahoo/">yahoo</a></li>
+            <li><a href="yandex/">yandex</a></li>
+        </ul>
+    </nav>
+    <h1>Welcome to the 3D Landing Page</h1>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        const geometry = new THREE.BoxGeometry();
+        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+        const cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
+
+        camera.position.z = 5;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>
